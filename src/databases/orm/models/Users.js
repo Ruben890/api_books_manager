@@ -9,6 +9,17 @@ const Users = sequelize.define('users', {
         primaryKey: true,
         autoIncrement: true
     },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            async isUnique(value, next) {
+                const users = await Users.findOne({ where: { username: value } });
+                if (users) return next('User must be unique');
+                next();
+            }
+        }
+    },
     first_name: {
         type: DataTypes.STRING,
         allowNull: false
