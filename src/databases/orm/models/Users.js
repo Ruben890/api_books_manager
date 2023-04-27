@@ -42,16 +42,12 @@ const Users = sequelize.define('users', {
     }, password: {
         type: DataTypes.STRING,
         allowNull: false,
-        set(value) {
-            const salt = bcrypt.genSaltSync();
-            const hashedPassword = bcrypt.hashSync(value, salt);
-            this.setDataValue('password', hashedPassword);
-        }
     }
 }, {
     hooks: {
-        beforeCreate: (user) => {
-            user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync());
+        beforeCreate: async (user) => {
+            const salt = await bcrypt.genSalt(10);
+            user.password = await bcrypt.hash(user.password, salt);
         }
     }, timestamps: false
 })
