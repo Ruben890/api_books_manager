@@ -1,6 +1,6 @@
 const Users = require('../databases/orm/models/Users.js');
 const bcrypt = require('bcrypt')
-
+const jwt = require('jsonwebtoken')
 const RegisterUser = async (req, res) => {
     try {
         const { username, first_name, last_name, email, password } = req.body;
@@ -29,6 +29,8 @@ const loginUser = async (req, res) => {
         if (!isValidPassword) {
             return res.status(401).json({ error: 'Invalid password' });
         }
+
+        const token = jwt.sign()
 
         return res.status(200).json({
             message: 'Logged in successfully',
