@@ -1,22 +1,27 @@
 const Users = require('../databases/orm/models/Users.js');
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
-const { use } = require('../app.js');
+
 require('dotenv').config()
 
 
-const RegisterUser = async (req, res) => {
+
+const registerUser = async (req, res) => {
     try {
         const { username, first_name, last_name, email, password } = req.body;
-        const user = await Users.create({ username, first_name, last_name, email, password });
-        res.status(201).json({
-            message: 'registered successfully',
-        });
+
+        // crear usuario
+        await Users.create({ username, first_name, last_name, email, password });
+
+        // enviar respuesta con éxito
+        res.status(201).json({ message: 'Registered successfully' });
     } catch (error) {
         console.error(error);
-        res.status(500).send({ message: `Server error: ${error.message}` });
+
+        // enviar respuesta con error
+        res.status(500).json({ message: `Server error: ${error.message}` });
     }
-}
+};
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
@@ -33,23 +38,29 @@ const loginUser = async (req, res) => {
         if (!isValidPassword) {
             return res.status(401).json({ error: 'Invalid password' });
         }
-        const token = jwt.sign({ email, password, exp: Date.now() + 24 * 60 * 60 * 1000 }, process.env.JWT_SECRET)
 
-        return res.status(200).json({
-            message: 'Logged in successfully',
-            token: token
-        });
+        // crear y firmar token JWT
+        const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '15m' });
+
+        // enviar respuesta con éxito y el token sin cifrar
+        return res.header('auth-token', token).status(200).json({ message: 'Logged in successfully' });
     } catch (error) {
         console.error(error);
         res.status(500).send({ message: `Server error: ${error.message}` });
     }
 };
 
-const GetUser = (req, res) => { 
+
+const getUser = async (req, res) => {
     
-}
+
+};
+
+
+
 
 module.exports = {
-    RegisterUser,
-    loginUser
+    registerUser,
+    loginUser,
+    getUser
 }

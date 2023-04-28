@@ -1,23 +1,31 @@
+//*dependencies
 const express = require('express');
 const swaggerUI = require('swagger-ui-express');
 require('dotenv').config();
+const cors = require('cors');
+const morgan = require('morgan');
+//*routers
+const authRouter = require('./v1/routers/auth.routes.js');
+const booksRouter = require('./v1/routers/booksManage.routes.js')
+
 
 const app = express();
-const cors = require('cors');
-const cookieParser = require('cookie-parser')
-const V1Router = require('./v1/routers/router.js');
-
 
 //**Setting */
 app.set('port', process.env.PORT || 4000);
 
+
 //**middleware */
+const verifyToken = require('./middleware/verifyToken.js')
+app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors());
-app.use(cookieParser());
+
 
 //** Routes */
-app.use('/api/v1/', V1Router)
+app.use('/api/v1/auth/', authRouter)
+app.use('api/v1/boosk ', verifyToken, booksRouter)
+
 
 
 //* Swagger Documentation
