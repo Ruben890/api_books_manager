@@ -5,7 +5,7 @@ const main = async () => {
     try {
         await sequelize.sync({ force: false })
         app.listen(app.get('port'), () => {
-            console.log(`Server running on port ${app.get('port')}`)
+            console.log(`http://localhost:${app.get("port")}/api-v1-docs/#/Users/get_users`)
         })
     } catch (err) {
         console.error(err)
