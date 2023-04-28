@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 const { use } = require('../app.js');
 require('dotenv').config()
+
+
 const RegisterUser = async (req, res) => {
     try {
         const { username, first_name, last_name, email, password } = req.body;
@@ -33,7 +35,6 @@ const loginUser = async (req, res) => {
         }
         const token = jwt.sign({ email, password, exp: Date.now() + 24 * 60 * 60 * 1000 }, process.env.JWT_SECRET)
 
-
         return res.status(200).json({
             message: 'Logged in successfully',
             token: token
@@ -44,7 +45,9 @@ const loginUser = async (req, res) => {
     }
 };
 
-
+const GetUser = (req, res) => { 
+    
+}
 
 module.exports = {
     RegisterUser,
