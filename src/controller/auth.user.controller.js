@@ -51,16 +51,20 @@ const loginUser = async (req, res) => {
 };
 
 
-const getUser = async (req, res) => {
-    
+const logaud = async (req, res) => {
+
 
 };
 
 
+const getUser = async (req, res) => {
+
+}
 
 
 module.exports = {
     registerUser,
     loginUser,
-    getUser
+    getUser,
+    logaud
 }

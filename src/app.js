@@ -16,15 +16,14 @@ app.set('port', process.env.PORT || 4000);
 
 
 //**middleware */
-const verifyToken = require('./middleware/verifyToken.js')
 app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors());
 
 
 //** Routes */
-app.use('/api/v1/auth/', authRouter)
-app.use('api/v1/boosk ', verifyToken, booksRouter)
+app.use('/api/v1/auth', authRouter)
+app.use('api/v1/boosk ', booksRouter)
 
 
 

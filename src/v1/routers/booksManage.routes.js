@@ -2,7 +2,7 @@ const { Router } = require('express')
 const router = Router()
 
 router
-    .get('books',)
+    .get('/',)
 
 
- module.exports = router
+module.exports = router
