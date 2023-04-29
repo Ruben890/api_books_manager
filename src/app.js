@@ -18,15 +18,14 @@ app.set('port', process.env.PORT || 4000);
 app.use(session({
     name: 'booksManage',
     secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-    secure: true,
+    resave: false,
+    saveUninitialized: false,
     cookie: {
-        secure: true,
+        secure: false,
         httpOnly: true,
         // domain: 'example.com',
         // path: 'foo/bar',
-        maxAge: 1000 * 60 * 15
+        maxAge: 15 * 60 * 1000
     }
 }))
 
