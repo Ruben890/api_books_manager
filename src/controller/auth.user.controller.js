@@ -2,8 +2,6 @@ const Users = require('../databases/orm/models/Users.js');
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 
-require('dotenv').config()
-
 
 
 const registerUser = async (req, res) => {
@@ -19,7 +17,7 @@ const registerUser = async (req, res) => {
         console.error(error);
 
         // enviar respuesta con error
-        res.status(500).json({ message: `Server error: ${error.message}` });
+        res.status(500).json({ message: "Internal Server Error" });
     }
 };
 
@@ -49,7 +47,7 @@ const loginUser = async (req, res) => {
         })
     } catch (error) {
         console.error(error);
-        res.status(500).send({ message: `Server error: ${error.message}` });
+        res.status(500).send({ message: "Internal Server Error" });
     }
 };
 
@@ -67,18 +65,14 @@ const logoutUser = async (req, res) => {
 
 const getUser = async (req, res) => {
     try {
-        //verificar el token de la sesión del usuario
-        const decodedToken = jwt.verify(req.session.token, process.env.JWT_SECRET)
-        const user = await Users.findOne({ where: { email: decodedToken.email } });
-        // enviar unas respuesta
         res.status(200).json({
             message: "login successful",
-            data: user
+            data: res.user
         })
 
     } catch (err) {
         console.error(err);
-        res.status(500).send({ message: `Server error: ${err.message}` });
+        res.status(500).send({ message: "Internal Server Error" });
     }
 }
 

@@ -13,11 +13,12 @@ const verifyToken = async (req, res, next) => {
         if (!user) {
             return res.status(401).json({ error: 'Unauthorized' });
         }
+        res.user = user;
         // el usuario está autenticado
         next();
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: `Server error: ${error.message}` });
+        res.status(500).json({ message: `Internal Server Error` });
     }
 };
 

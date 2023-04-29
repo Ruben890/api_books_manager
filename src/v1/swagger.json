@@ -134,6 +134,40 @@
                     }
                 }
             }
+        },
+        "/books/createBook": {
+            "post": {
+                "tags": [
+                    "Books Manager"
+                ],
+                "summary": "Crear libros",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Información del libro",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Books"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "nuevo libro creado"
+                    },
+                    "500": {
+                        "description": "Error del servidor"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -161,14 +195,14 @@
         "Books": {
             "type": "object",
             "properties": {
-                "name": {
+                "title": {
                     "type": "string"
                 },
                 "author": {
                     "type": "string"
                 },
-                "fecha_de_publicacion": {
-                    "type": "date"
+                "year": {
+                    "type": "integer"
                 }
             }
         }

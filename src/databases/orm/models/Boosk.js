@@ -8,17 +8,24 @@ const Books = sequelize.define('books', {
         primaryKey: true,
         autoIncrement: true
     },
-    name: {
+    title: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false,
+        validate: {
+            async isUnique(value, next) {
+                const users = await Users.findOne({ where: { username: value } });
+                if (users) return next('User must be unique');
+                next();
+            }
+        }
     },
     author: {
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
-    fecha_de_publicacion: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW // establece la fecha actual como valor predeterminado
+    year: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
     }
 })
 

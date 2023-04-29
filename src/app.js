@@ -38,7 +38,7 @@ app.use(Helmet());
 
 //** Routes */
 app.use('/api/v1/auth', authRouter)
-app.use('api/v1/boosk ', booksRouter)
+app.use('/api/v1/books', booksRouter)
 
 
 
