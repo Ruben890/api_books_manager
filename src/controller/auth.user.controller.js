@@ -41,9 +41,11 @@ const loginUser = async (req, res) => {
 
         // crear y firmar token JWT
         const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '15m' });
-
+    
         // enviar respuesta con éxito y el token sin cifrar
-        return res.header('auth-token', token).status(200).json({ message: 'Logged in successfully' });
+        res.header('auth-token', token).status(200).json({
+            message: "autetication successfully"
+        })
     } catch (error) {
         console.error(error);
         res.status(500).send({ message: `Server error: ${error.message}` });
@@ -53,11 +55,13 @@ const loginUser = async (req, res) => {
 
 const logaud = async (req, res) => {
 
+    
 
 };
 
 
 const getUser = async (req, res) => {
+    
 
 }
 

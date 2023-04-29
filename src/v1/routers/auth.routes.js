@@ -5,7 +5,8 @@ const { registerUser, loginUser, getUser, logaud } = require('../../controller/a
 
 router
     .post('/login', loginUser)//*login user
-    .post('/register', registerUser)//* registers user
+    .post('/register', registerUser)
+    .get("/user", getUser)//*view user
 
 
 module.exports = router
