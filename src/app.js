@@ -25,7 +25,7 @@ app.use(session({
         httpOnly: true,
         // domain: 'example.com',
         // path: 'foo/bar',
-        maxAge: 15 * 60 * 1000
+        maxAge: 1000 * 60 * 15
     }
 }))
 

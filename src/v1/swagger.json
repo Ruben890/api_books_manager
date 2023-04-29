@@ -92,49 +92,6 @@
                 }
             }
         },
-        "/auth/user": {
-            "get": {
-                "tags": [
-                    "Auth User"
-                ],
-                "summary": "Obtener información del usuario autenticado",
-                "description": "",
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Obtener información del usuario autenticado"
-                    },
-                    "401": {
-                        "description": "No autorizado"
-                    },
-                    "500": {
-                        "description": "Error del servidor"
-                    }
-                }
-            }
-        },
-        "/auth/logout": {
-            "post": {
-                "tags": [
-                    "Auth User"
-                ],
-                "summary": "Cerrar sesión",
-                "description": "",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Sesión cerrada satisfactoriamente"
-                    }
-                }
-            }
-        },
         "/books/createBook": {
             "post": {
                 "tags": [
