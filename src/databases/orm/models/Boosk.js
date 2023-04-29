@@ -16,6 +16,10 @@ const Books = sequelize.define('books', {
         type: DataTypes.STRING,
         allowNull: true
     },
+    fecha_de_publicacion: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW // establece la fecha actual como valor predeterminado
+    }
 })
 
 module.exports = Books
