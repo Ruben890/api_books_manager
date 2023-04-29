@@ -3,10 +3,18 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 
 
-
 const registerUser = async (req, res) => {
     try {
         const { username, first_name, last_name, email, password } = req.body;
+
+        // buscar usuario o email existentes
+        const existingUser = await Users.findOne({ where: { username, email } });
+
+        // si el usuario o correo electrónico ya existen, enviar un mensaje de error
+        if (existingUser) {
+            const error = existingUser.username === username ? `User already exists: ${username}` : `Email already exists: ${email}`;
+            return res.status(400).json({ error });
+        }
 
         // crear usuario
         await Users.create({ username, first_name, last_name, email, password });
@@ -20,6 +28,7 @@ const registerUser = async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
     }
 };
+
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;

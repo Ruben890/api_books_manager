@@ -13,8 +13,8 @@ const Books = sequelize.define('books', {
         allowNull: false,
         validate: {
             async isUnique(value, next) {
-                const users = await Users.findOne({ where: { username: value } });
-                if (users) return next('User must be unique');
+                const book = await Books.findOne({ where: { title: value } });
+                if (book) return next('title must be unique');
                 next();
             }
         }
