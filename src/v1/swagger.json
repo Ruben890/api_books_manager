@@ -5,7 +5,7 @@
         "description": "api de manejo de libros con login",
         "version": "1.0.0"
     },
-    "basePath": "/v1/api",
+    "basePath": "/api/v1",
     "schemes": [
         "http",
         "https"
@@ -65,7 +65,17 @@
                         "description": "Información del usuario para iniciar sesión",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Login"
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "format": "email"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "format": "password"
+                                }
+                            }
                         }
                     }
                 ],
@@ -78,26 +88,6 @@
                     },
                     "500": {
                         "description": "Error del servidor"
-                    }
-                }
-            }
-        },
-        "/auth/logout": {
-            "post": {
-                "tags": [
-                    "Auth User"
-                ],
-                "summary": "Cerrar sesión",
-                "description": "",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Sesión cerrada satisfactoriamente"
                     }
                 }
             }
@@ -121,6 +111,26 @@
                     },
                     "500": {
                         "description": "Error del servidor"
+                    }
+                }
+            }
+        },
+        "/auth/logout": {
+            "post": {
+                "tags": [
+                    "Auth User"
+                ],
+                "summary": "Cerrar sesión",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Sesión cerrada satisfactoriamente"
                     }
                 }
             }
