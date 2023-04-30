@@ -9,7 +9,7 @@ const verifyToken = async (req, res, next) => {
     // verificar si el token es válido
     try {
         const decodedToken = jwt.verify(req.session.token, process.env.JWT_SECRET);
-        const user = await Users.findOne({ where: { email: decodedToken.email } });
+        const user = await Users.findOne({ where: { id: decodedToken.id } });
         if (!user) {
             return res.status(401).json({ error: 'Unauthorized' });
         }
