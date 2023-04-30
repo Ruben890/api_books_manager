@@ -50,7 +50,7 @@ const loginUser = async (req, res) => {
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '15m' });
         // guardar el token en la sesión del usuario
         req.session.token = token;
-        // enviar respuesta con éxito y el token sin cifrar
+        // enviar respuesta con éxito y el token
         res.header("auth-token", token).status(200).json({
             message: "autetication successfully"
         })
