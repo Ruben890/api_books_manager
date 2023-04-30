@@ -97,7 +97,7 @@
                 "tags": [
                     "Books Manager"
                 ],
-                "summary": "Crear libros",
+                "summary": "agregar un libro",
                 "description": "",
                 "consumes": [
                     "application/json"
