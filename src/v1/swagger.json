@@ -92,7 +92,7 @@
                 }
             }
         },
-        "/books/createBook": {
+        "/book/createBook": {
             "post": {
                 "tags": [
                     "Books Manager"
@@ -126,7 +126,7 @@
                 }
             }
         },
-        "/books": {
+        "/book": {
             "get": {
                 "tags": [
                     "Books Manager"
@@ -142,6 +142,116 @@
                 "responses": {
                     "200": {
                         "description": "Listado de libros"
+                    },
+                    "500": {
+                        "description": "Error del servidor"
+                    }
+                }
+            }
+        },
+        "/book/{id}": {
+            "get": {
+                "tags": [
+                    "Books Manager"
+                ],
+                "summary": "ver un libro por su ID",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID del libro",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Libro encontrado",
+                        "schema": {
+                            "$ref": "#/definitions/Books"
+                        }
+                    },
+                    "404": {
+                        "description": "libro no encontrado"
+                    }
+                }
+            }
+        },
+        "/book/updateBook/": {
+            "put": {
+                "tags": [
+                    "Books Manager"
+                ],
+                "summary": "actualizar un libro",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID del libro",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "book",
+                        "in": "body",
+                        "description": "actulizar libro",
+                        "schema": {
+                            "$ref": "#/definitions/Books"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "sea ha actulizado el libro",
+                        "schema": {
+                            "$ref": "#/definitions/Books"
+                        }
+                    },
+                    "500": {
+                        "description": "Error del servidor"
+                    }
+                }
+            }
+        },
+        "/book/deleteBook/": {
+            "delete": {
+                "tags": [
+                    "Books Manager"
+                ],
+                "summary": "eliminar un libro",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "book",
+                        "in": "path",
+                        "description": "ID del libro",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Libro eliminado"
                     },
                     "500": {
                         "description": "Error del servidor"

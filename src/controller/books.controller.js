@@ -32,16 +32,71 @@ const getBooksAlls = async (req, res) => {
             data: gerBooksAll
         })
 
-    } catch (err) {
-        console.error(err);
+    } catch (error) {
+        console.error(error);
         res.status(500).json({ message: "Internal Server Error" });
     }
 }
 
+const getOneBook = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const book = await Books.findOne({ where: { id } });
+        res.status(200).json({
+            message: "http ok",
+            data: book
+        })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
+const updateBook = async (req, res) => {
+    try {
+        // verificar si el libro le pertenece al usuario
+        const book = await Books.findOne({ where: { id: req.params.id, userId: res.user.id } });
+        if (!book) {
+            return res.status(404).json({ message: "Book not found or does not belong to this user." });
+        }
+
+        const { title, author, year } = req.body;
+        await book.update({ title, author, year });
+
+        res.status(200).json({
+            message: "Book updated",
+            data: book
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+};
+
+const deleteBook = async (req, res) => {
+    try {
+        // verificar si el libro le pertenece al usuario
+        const book = await Books.findOne({ where: { id: req.params.id, userId: res.user.id } });
+        if (!book) return res.status(404).json({ message: "Book not found or does not belong to this user." });
+
+        // borrar el libro
+        const deleteUser = await Users.destroy({ where: { id: req.params.id } })
+        if (!deleteUser) return res.status(404).json({ message: "User not found", })
+        res.status(201).json({
+            message: "delete user successfully"
+        })
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+}
 
 module.exports = {
     createBooks,
-    getBooksAlls
+    getBooksAlls,
+    getOneBook,
+    updateBook,
+    deleteBook
 }
 
 
