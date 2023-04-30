@@ -1,4 +1,6 @@
+const { response } = require('express');
 const Books = require('./../databases/orm/models/Boosk.js')
+const { Op } = require('sequelize');
 
 const createBooks = async (req, res) => {
     try {
@@ -24,19 +26,34 @@ const createBooks = async (req, res) => {
 };
 
 
-const getBooksAlls = async (req, res) => {
+const getBooksAlls = async (req, res = response) => {
     try {
-        const gerBooksAll = await Books.findAll();
+        const { page = 0, size = 5, search = '' } = req.query;
+
+        const query = {
+            limit: +size,
+            offset: (+page) * (+size),
+            order: [['id', 'DESC']],
+            where: {
+                [Op.or]: [
+                    { title: { [Op.substring]: search } },
+                    { author: { [Op.substring]: search } }
+                ]
+            }
+        };
+
+        const { count, rows } = await Books.findAndCountAll(query);
+
         res.status(200).json({
             message: "http ok",
-            data: gerBooksAll
-        })
-
+            total: count,
+            data: rows
+        });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Internal Server Error" });
+        res.status(500).json({ message: 'Internal Server Error' });
     }
-}
+};
 
 const getOneBook = async (req, res) => {
     try {

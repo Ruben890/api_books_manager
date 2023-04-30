@@ -128,27 +128,55 @@
         },
         "/book": {
             "get": {
-                "tags": [
-                    "Books Manager"
-                ],
-                "summary": "Listar libros",
-                "description": "",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Listado de libros"
-                    },
-                    "500": {
-                        "description": "Error del servidor"
-                    }
+              "tags": [
+                "Books Manager"
+              ],
+              "summary": "Listar libros",
+              "description": "",
+              "consumes": [
+                "application/json"
+              ],
+              "produces": [
+                "application/json"
+              ],
+              "parameters": [
+                {
+                  "name": "page",
+                  "in": "query",
+                  "description": "Número de página a recuperar",
+                  "required": false,
+                  "type": "integer",
+                  "format": "int64",
+                  "minimum": 0
+                },
+                {
+                  "name": "size",
+                  "in": "query",
+                  "description": "Tamaño de página",
+                  "required": false,
+                  "type": "integer",
+                  "format": "int64",
+                  "minimum": 1,
+                  "maximum": 100
+                },
+                {
+                  "name": "search",
+                  "in": "query",
+                  "description": "Búsqueda por título o autor",
+                  "required": false,
+                  "type": "string"
                 }
+              ],
+              "responses": {
+                "200": {
+                  "description": "Listado de libros"
+                },
+                "500": {
+                  "description": "Error del servidor"
+                }
+              }
             }
-        },
+          },          
         "/book/{id}": {
             "get": {
                 "tags": [
