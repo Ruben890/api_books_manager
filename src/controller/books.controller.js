@@ -26,7 +26,7 @@ const createBooks = async (req, res) => {
 };
 
 
-const getBooksAlls = async (req, res = response, next) => {
+const getBooksAlls = async (req, res = response) => {
     try {
         const { page = 0, size = 5, search = '' } = req.query;
 
