@@ -51,7 +51,7 @@ const loginUser = async (req, res) => {
         // guardar el token en la sesión del usuario
         req.session.token = token;
         // enviar respuesta con éxito y el token sin cifrar
-        res.header(token).status(200).json({
+        res.header("auth-token", token).status(200).json({
             message: "autetication successfully"
         })
     } catch (error) {

@@ -125,6 +125,29 @@
                     }
                 }
             }
+        },
+        "/books": {
+            "get": {
+                "tags": [
+                    "Books Manager"
+                ],
+                "summary": "Listar libros",
+                "description": "",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Listado de libros"
+                    },
+                    "500": {
+                        "description": "Error del servidor"
+                    }
+                }
+            }
         }
     },
     "definitions": {
