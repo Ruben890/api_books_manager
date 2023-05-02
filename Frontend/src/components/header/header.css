@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #0db2ac;
+}
+.navbar .options{
+   display: flex;
+   justify-content: space-between;
+}
+.navbar .options ul{
+    display: flex;
+    list-style: none;
+}
+
+.navbar .options > ul  li{
+    margin-left: 1.5rem;
+}
+.navbar .options >ul a{
+    color: #000000;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.search > input {
+    width: 16rem;
+}
+
+
