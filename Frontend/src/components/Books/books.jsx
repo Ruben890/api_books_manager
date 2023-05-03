@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchBooks} from "../../services/books/books.action";
+import { fetchBooks } from "../../services/books/books.action";
 export const Books = () => {
     const books = useSelector(state => state.book.books);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const getBooks = async () => {
-            await dispatch(fetchBooks());
-            setLoading(false);
-        };
-        getBooks();
+        dispatch(fetchBooks())
+            .then(() => setLoading(false));
     }, [dispatch]);
 
     if (loading) {

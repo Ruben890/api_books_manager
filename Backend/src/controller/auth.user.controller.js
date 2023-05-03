@@ -46,7 +46,7 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ error: 'Invalid password' });
         }
 
-         // crear y firmar token JWT con el ID del usuario
+        // crear y firmar token JWT con el ID del usuario
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '15m' });
         // guardar el token en la sesión del usuario
         req.session.token = token;
@@ -60,8 +60,21 @@ const loginUser = async (req, res) => {
     }
 };
 
+const getUser = (req, res) => {
+    try {
+        res.status(200).send({
+            data: res.user
+        })
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ message: "Internal Server Error" });
+    }
+};
+
 
 module.exports = {
     registerUser,
     loginUser,
+    getUser
 }
