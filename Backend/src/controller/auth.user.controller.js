@@ -51,8 +51,9 @@ const loginUser = async (req, res) => {
         // guardar el token en la sesión del usuario
         req.session.token = token;
         // enviar respuesta con éxito y el token
-        res.header("auth-token", token).status(200).json({
-            message: "autetication successfully"
+        res.status(200).json({
+            message: "autetication successfully",
+            token: token
         })
     } catch (error) {
         console.error(error);

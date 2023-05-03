@@ -6,6 +6,9 @@ const authApi = axios.create({
 
 export const authLogin = async (email, password) => {
     return await authApi.post("/login", { email, password })
-        .then(response => console.log(response.headers))
-        .catch(error => console.error(error))
+        .then(resquest => localStorage.setItem("auth_token", resquest.data.token))
+        .catch(error => {
+            console.error(error);
+            throw new Error('Error de autenticación')
+        })
 };
