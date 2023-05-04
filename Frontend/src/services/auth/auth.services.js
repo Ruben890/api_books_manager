@@ -12,3 +12,6 @@ export const authLogin = async (email, password) => {
             throw new Error('Error de autenticación')
         })
 };
+
+
+export const authRegister = async () => { }
