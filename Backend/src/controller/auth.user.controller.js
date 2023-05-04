@@ -20,6 +20,7 @@ const registerUser = async (req, res) => {
         const file = req.file;
         const image = file ? `${req.protocol}://${req.get('host')}/${file.path}` : null;
 
+
         // crear usuario
         await Users.create({ username, first_name, last_name, email, password, image });
 

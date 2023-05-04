@@ -21,9 +21,9 @@ const Users = sequelize.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    image: {
+    image:{
         type: DataTypes.STRING,
-        allowNull: true
+        allowNull: false
     },
     email: {
         type: DataTypes.STRING,
