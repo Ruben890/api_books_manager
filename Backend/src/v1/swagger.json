@@ -92,7 +92,7 @@
                 }
             }
         },
-        "/auth/": {
+        "/auth/me": {
             "get": {
                 "tags": [
                     "Auth User"
