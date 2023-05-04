@@ -13,7 +13,7 @@ const registerUser = async (req, res) => {
         // si el usuario o correo electrónico ya existen, enviar un mensaje de error
         if (existingUser) {
             const error = existingUser.username === username ? `User already exists: ${username}` : `Email already exists: ${email}`;
-            return res.status(400).json({ error });
+            return res.status(400).json({ error: error });
         }
 
         // crear usuario

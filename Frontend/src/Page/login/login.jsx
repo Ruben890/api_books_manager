@@ -5,10 +5,14 @@ import { authLogin } from "../../services/auth/auth.services"
 export const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await authLogin(email, password);
+        const response = await authLogin(email, password);
+        if (response.errorMessage) {
+            setErrorMessage(response.errorMessage);
+        }
     }
 
     return (
@@ -29,6 +33,7 @@ export const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    {errorMessage && <p className="text-danger">{errorMessage}</p>}
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
                 <p className="forgot-password">Forgot Password?</p>

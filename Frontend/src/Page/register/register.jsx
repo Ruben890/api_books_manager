@@ -1,6 +1,5 @@
 import { authRegister } from "../../services/auth/auth.services"
 export const Register = () => {
-    
     const hendlerSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target)

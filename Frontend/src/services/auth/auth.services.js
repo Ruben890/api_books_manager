@@ -9,13 +9,20 @@ const authApi = axios.create({
 });
 
 export const authLogin = async (email, password) => {
+    let errorMessage = null;
     try {
         const response = await authApi.post("/login", { email, password });
         localStorage.setItem("auth_token", response.data.token);
     } catch (error) {
-        console.error(error);
+        if (error.response && error.response.data && error.response.data.error) {
+            errorMessage = error.response.data.error;
+        }
     }
+    return {
+        errorMessage
+    };
 };
+
 
 
 export const authRegister = async (formData) => {
@@ -23,8 +30,11 @@ export const authRegister = async (formData) => {
         const response = await authApi.post('/register', formData);
         return response.data;
     } catch (error) {
-        console.error(error);
-        throw new Error('Error de registro');
+
+        if (error.response && error.response.data && error.response.data.error) {
+            const errorMessage = error.response.data.error;
+            console.log(errorMessage)
+        }
     }
 };
 
