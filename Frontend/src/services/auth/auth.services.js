@@ -9,16 +9,23 @@ const authApi = axios.create({
 });
 
 export const authLogin = async (email, password) => {
-    return await authApi.post("/login", { email, password })
-        .then(resquest => localStorage.setItem("auth_token", resquest.data.token))
-        .catch(error => {
-            console.error(error);
-            throw new Error('Error de autenticación')
-        })
+    try {
+        const response = await authApi.post("/login", { email, password });
+        localStorage.setItem("auth_token", response.data.token);
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 
-export const authRegister = async () => { }
+export const authRegister = async () => {
+    try {
+        const response = await authApi.post("/register");
+
+    } catch (error) {
+        console.error(error);
+    };
+}
 
 export const getUser = () => async (dispatch) => {
     try {
@@ -27,6 +34,5 @@ export const getUser = () => async (dispatch) => {
         return response.data;
     } catch (error) {
         console.error(error);
-        throw new Error('Error de autenticación');
     }
 };
