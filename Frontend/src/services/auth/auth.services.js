@@ -21,10 +21,12 @@ export const authLogin = async (email, password) => {
 export const authRegister = async () => { }
 
 export const getUser = () => async (dispatch) => {
-    return await authApi.get("/me")
-        .then(resquest => dispatch(setAuthUser(resquest.data)))
-        .catch(error => {
-            console.error(error);
-            throw new Error('Error de autenticación')
-        })
-}
+    try {
+        const response = await authApi.get("/me");
+        dispatch(setAuthUser(response.data));
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error de autenticación');
+    }
+};

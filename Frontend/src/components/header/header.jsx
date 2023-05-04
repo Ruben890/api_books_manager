@@ -20,8 +20,7 @@ export const Header = () => {
 
                         <ul>
                             <div>
-                                {user ? <Link to={`/user/${user.id}`}>{user.first_name}</Link> : <Link to="/login">login</Link>
-                                }
+                                {user ? <Link to={`/user/${user.id}`}>{user.first_name}</Link> : <Link to="/login">login</Link>}
                             </div>
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/Mis_libros">Mis libros</Link></li>
