@@ -1,17 +1,16 @@
 const multer = require('multer');
+const path = require('path');
 
-
-// Configuración del almacenamiento del archivo utilizando multer
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '../media/upload')
+        const uploadPath = path.join(__dirname, '..', 'media', 'upload');
+        cb(null, uploadPath);
     },
     filename: (req, file, cb) => {
-        cb(null, `${file.fieldname}-${Date.now()}`)
+        cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`);
     }
 });
 
-// Configuración del middleware de multer con limitaciones de tamaño y tipo de archivo permitido
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 module.exports = upload;
