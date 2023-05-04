@@ -18,14 +18,15 @@ export const authLogin = async (email, password) => {
 };
 
 
-export const authRegister = async () => {
+export const authRegister = async (formData) => {
     try {
-        const response = await authApi.post("/register");
-
+        const response = await authApi.post('/register', formData);
+        return response.data;
     } catch (error) {
         console.error(error);
-    };
-}
+        throw new Error('Error de registro');
+    }
+};
 
 export const getUser = () => async (dispatch) => {
     try {
