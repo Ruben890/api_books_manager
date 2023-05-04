@@ -12,13 +12,6 @@ const Users = sequelize.define('users', {
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            async isUnique(value, next) {
-                const users = await Users.findOne({ where: { username: value } });
-                if (users) return next('User must be unique');
-                next();
-            }
-        }
     },
     first_name: {
         type: DataTypes.STRING,
@@ -28,16 +21,15 @@ const Users = sequelize.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    image: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
     email: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
             isEmail: true,
-            async isUnique(value, next) {
-                const users = await Users.findOne({ where: { email: value } });
-                if (users) return next('Email is already in use');
-                next();
-            }
         }
     }, password: {
         type: DataTypes.STRING,

@@ -11,15 +11,20 @@ const Books = sequelize.define('books', {
     title: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            async isUnique(value, next) {
-                const book = await Books.findOne({ where: { title: value } });
-                if (book) return next('title must be unique');
-                next();
-            }
-        }
+    },
+    image: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    description: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     author: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    publisher: {
         type: DataTypes.STRING,
         allowNull: false
     },

@@ -16,8 +16,12 @@ const registerUser = async (req, res) => {
             return res.status(400).json({ error: error });
         }
 
+        // subir la imagen y obtener su URL
+        const file = req.file;
+        const image = file ? `${req.protocol}://${req.get('host')}/${file.path}` : null;
+
         // crear usuario
-        await Users.create({ username, first_name, last_name, email, password });
+        await Users.create({ username, first_name, last_name, email, password, image });
 
         // enviar respuesta con éxito
         res.status(201).json({ message: 'Registered successfully' });
