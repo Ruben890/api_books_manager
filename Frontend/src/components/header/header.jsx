@@ -4,12 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from "../../services/auth/auth.services";
 import "./header.css"
 export const Header = () => {
-    const user = useSelector(state => state.user)
+    const user = useSelector(state => state.user.user.data)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getUser())
     }, [dispatch])
-    console.log(user)
 
 
 
@@ -21,16 +20,8 @@ export const Header = () => {
 
                         <ul>
                             <div>
-                                {/* <Link to="/login">user</Link> */}
-
-                                {user.map(user => {
-
-                                    return (
-                                        <li key={user.id}>
-                                            <Link to={`/user/${user.id}`}>{user.first_name}</Link>
-                                        </li>
-                                    )
-                                })}
+                                {user ? <Link to={`/user/${user.id}`}>{user.first_name}</Link> : <Link to="/login">login</Link>
+                                }
                             </div>
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/Mis_libros">Mis libros</Link></li>
