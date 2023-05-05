@@ -20,4 +20,4 @@
 <li>JWT_SECRET = " "</li>
 <li>SESSION_SECRET = " "</li>
 </ul>
-
+<h4>📂create file:🗂️media/upload</h4>
