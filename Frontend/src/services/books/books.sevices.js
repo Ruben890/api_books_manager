@@ -3,7 +3,7 @@ import { setBook, setPage, setSearch } from '../../features/boosk/books.slice'
 const APIBooks = axios.create({
   baseURL: 'http://localhost:4000/api/v1/book',
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'multipart/form-data',
     'Authorization': localStorage.getItem('auth_token')
   }
 })

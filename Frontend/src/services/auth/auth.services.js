@@ -3,7 +3,7 @@ import { setAuthUser } from '../../features/auth/auth.user.slice';
 const authApi = axios.create({
     baseURL: 'http://localhost:4000/api/v1/auth/',
     headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': "application/json",
         'Authorization': localStorage.getItem('auth_token')
     }
 });
@@ -28,7 +28,7 @@ export const authLogin = async (email, password) => {
 export const authRegister = async (formData) => {
     try {
         const response = await authApi.post('/register', formData);
-
+        return response.data
     } catch (error) {
 
         if (error.response && error.response.data && error.response.data.error) {

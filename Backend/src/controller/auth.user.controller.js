@@ -37,6 +37,10 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
+    
+    if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
+      }
 
     try {
         const user = await Users.findOne({ where: { email } });
