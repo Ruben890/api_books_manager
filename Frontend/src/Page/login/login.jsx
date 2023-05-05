@@ -13,6 +13,7 @@ export const Login = () => {
         if (response.errorMessage) {
             setErrorMessage(response.errorMessage);
         }
+        window.location.href = '/'
     }
 
     return (

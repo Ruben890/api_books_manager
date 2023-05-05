@@ -1,11 +1,9 @@
-import { Header } from "../../components/header/header"
 import { Link } from "react-router-dom"
-import "./MyBooks.css"
-export const MyBooks = () => {
-    return (<>
-        <Header />
+import "./menuSidebar.css"
 
-        <div  className="MenuSidebar">
+export const MenuSidebar = () => {
+    return (
+        <div className="MenuSidebar">
             <nav>
                 <ul className="p-2 mt-5">
                     <li className="p-2">
@@ -15,7 +13,7 @@ export const MyBooks = () => {
                         <Link to="/mybooks">My Books</Link>
                     </li>
                     <li className="p-2">
-                        <Link to="/addbook">Add Book</Link>
+                        <Link to="/addBook">Add Book</Link>
                     </li>
                     <li className="p-2">
                         <Link to='/update-book'>Update Book</Link>
@@ -24,7 +22,5 @@ export const MyBooks = () => {
             </nav>
 
         </div>
-    </>)
-
-
+    )
 }

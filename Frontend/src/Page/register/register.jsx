@@ -11,6 +11,7 @@ export const Register = () => {
         if (response.errorMessage) {
           setErrorMessage(response.errorMessage);
         }
+        window.location.href = '/login'
       }
 
 

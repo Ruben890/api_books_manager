@@ -22,4 +22,18 @@ export const getOneBook = (id) => async (dispatch) => {
   return response.data;
 };
 
+export const createBook = async (formData) => {
+  let errorMessage = null;
+  try {
+    const response = await APIBooks.post('/createBook', formData);
+  } catch (error) {
+    if (error.response && error.response.data && error.response.data.error) {
+      errorMessage = error.response.data.error;
+      console.assert(errorMessage);
+    }
+  }
+  return {
+    errorMessage
+  };
+}
 

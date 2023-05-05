@@ -10,6 +10,7 @@ export const Books = () => {
         dispatch(getBooks())
             .then(() => setLoading(false));
     }, [dispatch]);
+    console.log(books)
 
     if (loading) {
         return <div>Loading...</div>;
@@ -18,8 +19,11 @@ export const Books = () => {
     return books.data.map(book => {
         return (
             <div key={book.id}>
+                <img src={book.image} alt={book.title} />
                 <h2>{book.title}</h2>
                 <p>{book.author}</p>
+                <p>{book.description}</p>
+                <p>{book.publisher}</p>
                 <p>{book.year}</p>
             </div>
         )
