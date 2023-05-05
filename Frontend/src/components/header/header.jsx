@@ -23,7 +23,7 @@ export const Header = () => {
                                 {user ? <Link to={`/user/${user.id}`}>{user.username}</Link> : <Link to="/login">login</Link>}
                             </div>
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/Mis_libros">Mis libros</Link></li>
+                            <li><Link to="/myBooks">Mis libros</Link></li>
                         </ul>
 
                         <div className="search">

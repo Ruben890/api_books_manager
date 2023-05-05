@@ -23,6 +23,7 @@ export const Login = () => {
                         type="email"
                         className="form-control mt-3"
                         placeholder="Email"
+                        name = "email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
@@ -30,6 +31,7 @@ export const Login = () => {
                         type="password"
                         className="form-control mt-3"
                         placeholder="Password"
+                        name = "password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />

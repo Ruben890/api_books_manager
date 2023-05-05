@@ -1,0 +1,17 @@
+.MenuSidebar {
+    bottom: 0px;
+    position: absolute;
+    height: 93%;
+    width: 8rem;
+    background-color: #0db2ac;
+}
+
+.MenuSidebar > nav > ul {
+    list-style: none;
+}
+
+
+.MenuSidebar > nav > ul > li > a {
+    text-decoration: none;
+    color: #202020;
+}
