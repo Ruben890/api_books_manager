@@ -1,12 +1,17 @@
 import { authRegister } from "../../services/auth/auth.services"
+import { useState } from "react"
 export const Register = () => {
-    const hendlerSubmit = (e) => {
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const hendlerSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target)
         const userRegister = Object.fromEntries(formData)
-        authRegister(userRegister)
-        return window.location.href('/')
-    }
+        const response = await authRegister(userRegister)
+        if (response.errorMessage) {
+          setErrorMessage(response.errorMessage);
+        }
+      }
 
 
     return (
@@ -20,6 +25,7 @@ export const Register = () => {
                         <input type="email" className="form-control mt-3 mb-3" placeholder="email" name="email" />
                         <input type="password" className="form-control mt-3 mb-3" placeholder="password" name="password" />
                         <input type="password" className="form-control mt-3 mb-3" placeholder="confirm password" />
+                        {errorMessage && <p className="text-danger">{errorMessage}</p>}
                     </div>
                     <button type="submit" className="btn btn-primary">Register</button>
                 </form>

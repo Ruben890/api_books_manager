@@ -26,16 +26,18 @@ export const authLogin = async (email, password) => {
 
 
 export const authRegister = async (formData) => {
+    let errorMessage = null;
     try {
         const response = await authApi.post('/register', formData);
-        return response.data
     } catch (error) {
 
         if (error.response && error.response.data && error.response.data.error) {
-            const errorMessage = error.response.data.error;
-            console.log(errorMessage)
+            errorMessage = error.response.data.error;
         }
     }
+    return {
+        errorMessage
+    };
 };
 
 export const getUser = () => async (dispatch) => {
