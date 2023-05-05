@@ -6,6 +6,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const session = require('express-session');
 const Helmet = require('helmet');
+const path = require('path');
 //*routers
 const authRouter = require('./v1/routers/auth.routes.js');
 const booksRouter = require('./v1/routers/booksManage.routes.js')
@@ -35,6 +36,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors());
 app.use(Helmet());
+app.use(express.static(path.join(__dirname, "./uploads")))
 
 
 //** Routes */

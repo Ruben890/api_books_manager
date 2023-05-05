@@ -18,7 +18,9 @@ const registerUser = async (req, res) => {
 
         // subir la imagen y obtener su URL
         const file = req.file;
-        const image = file ? `${req.protocol}://${req.get('host')}/${file.path}` : null;
+        const image = file ? `${req.protocol}://${req.get('host')}/uploads/${file.filename}` : null;
+
+
 
 
         // crear usuario
@@ -37,10 +39,10 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
-    
+
     if (!email) {
         return res.status(400).json({ error: 'Email is required' });
-      }
+    }
 
     try {
         const user = await Users.findOne({ where: { email } });

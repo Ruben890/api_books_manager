@@ -14,7 +14,9 @@ const createBooks = async (req, res) => {
 
         // subir la imagen y obtener su URL
         const file = req.file;
-        const image = file ? `${req.protocol}://${req.get('host')}/${file.path}` : null;
+        const image = file ? `${req.protocol}://${req.get('host')}/uploads/${file.filename}` : null;
+
+
 
         // Crear el libro
         await Books.create({ title, author,publisher, description, year, userId: res.user.id, image });
