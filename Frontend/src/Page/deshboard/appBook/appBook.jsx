@@ -25,7 +25,7 @@ export const AppBook = () => {
                 <form className="form-group w-50" onSubmit={hendlerSubmit}>
                     <div>
                         <input type="text" className="form-control mt-2" placeholder="title" name="title" />
-                        <input type="text" className="form-control mt-2" placeholder="description" name="description" />
+                        <textarea type="text" className="form-control mt-2" placeholder="description" name="description" maxLength="1000" style={{ resize: "none", width: "500", height: "500" }}></textarea>
                         <input type="text" className="form-control mt-2" placeholder="author" name="author" />
                         <input type="text" className="form-control mt-2" placeholder="publisher" name="publisher" />
                         <input type="number" className="form-control mt-2" placeholder="year of publication" name="year" />
