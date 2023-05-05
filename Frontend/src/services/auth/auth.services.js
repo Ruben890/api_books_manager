@@ -3,7 +3,7 @@ import { setAuthUser } from '../../features/auth/auth.user.slice';
 const authApi = axios.create({
     baseURL: 'http://localhost:4000/api/v1/auth/',
     headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'multipart/form-data',
         'Authorization': localStorage.getItem('auth_token')
     }
 });
