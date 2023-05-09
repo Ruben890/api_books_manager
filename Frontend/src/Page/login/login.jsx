@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { authLogin } from "../../services/auth/auth.services"
-import libros from "../../static/img/libros.jpeg"
 import "./login.css"
 
 export const Login = () => {
