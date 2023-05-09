@@ -9,10 +9,12 @@ export const Register = () => {
         const userRegister = Object.fromEntries(formData)
         const response = await authRegister(userRegister)
         if (response.errorMessage) {
-          setErrorMessage(response.errorMessage);
+            setErrorMessage(response.errorMessage);
+        } else {
+            window.location.href = '/login'
         }
-        window.location.href = '/login'
-      }
+
+    }
 
 
     return (

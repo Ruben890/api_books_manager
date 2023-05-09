@@ -12,8 +12,10 @@ export const Login = () => {
         const response = await authLogin(email, password);
         if (response.errorMessage) {
             setErrorMessage(response.errorMessage);
+        }else{
+            window.location.href = '/'
         }
-        window.location.href = '/'
+        
     }
 
     return (
