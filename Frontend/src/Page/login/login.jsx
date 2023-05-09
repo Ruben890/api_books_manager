@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { authLogin } from "../../services/auth/auth.services"
+import libros from "../../static/img/libros.jpeg"
+import "./login.css"
 
 export const Login = () => {
     const [email, setEmail] = useState("");
@@ -12,38 +14,60 @@ export const Login = () => {
         const response = await authLogin(email, password);
         if (response.errorMessage) {
             setErrorMessage(response.errorMessage);
-        }else{
+        } else {
             window.location.href = '/'
         }
-        
+
     }
 
     return (
         <>
-            <form className="form-group container" onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        type="email"
-                        className="form-control mt-3"
-                        placeholder="Email"
-                        name = "email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        className="form-control mt-3"
-                        placeholder="Password"
-                        name = "password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    {errorMessage && <p className="text-danger">{errorMessage}</p>}
+            <div className="container w-75  rounded mt-5 shadow" >
+                <div className="row  align-items-stretch">
+                    <div className="col bg-image d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded-start">
+
+
+                    </div>
+                    <div className="col bg-withe rounded-end">
+                        <h2 className="fw-blod text-center py-5">Bivenenido</h2>
+
+                        {/* LOGIN */}
+
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-4">
+                                <label htmlFor='email' className="form-label">Email</label>
+                                <input
+                                    type="email"
+                                    className="form-control"
+                                    placeholder="Email"
+                                    name="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
+                            <div className="mb-4">
+                                <label htmlFor="password" className="form-label">password</label>
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Password"
+                                    name="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </div>
+                            {errorMessage && <p className="text-danger">{errorMessage}</p>}
+                            <div className="d-grid">
+                                <button type="submit" className="btn btn-primary">Login</button>
+                            </div>
+                            <div className="my-3">
+                                <span className="signup">Don't have an account? <Link to="/signup">Sign Up</Link></span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
-                <p className="forgot-password">Forgot Password?</p>
-                <p className="signup">Don't have an account? <Link to="/signup">Sign Up</Link></p>
-            </form>
+
+            </div>
         </>
     );
 }

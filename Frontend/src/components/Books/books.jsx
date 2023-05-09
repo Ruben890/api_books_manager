@@ -18,7 +18,7 @@ export const Books = () => {
 
     return books.data.map(book => {
         return (
-            <div key={book.id} className="cardBooks rounded" style={{ width: "12rem" }}>
+            <div key={book.id} className="cardBooks rounded shadow  bg-body-tertiary" style={{ width: "12rem" }}>
                 <img src={book.image} alt={book.title} className="card-img rounded" />
                 <div className="into rounded">
                     <h1><span>{book.title}</span>-({book.year})</h1>
