@@ -39,7 +39,7 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 app.use(Helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
-app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "./uploads"))); //* file management
 
 
 //** Routes */
