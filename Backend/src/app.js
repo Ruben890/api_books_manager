@@ -38,7 +38,7 @@ app.use(cors({
     origin: 'http://localhost:5173', // origen permitido//
     optionsSuccessStatus: 200
 }));
-app.use(Helmet());
+app.use(Helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 
 
