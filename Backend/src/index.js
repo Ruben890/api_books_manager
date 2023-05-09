@@ -1,4 +1,4 @@
-const app = require('./app.js')
+const  app  = require('./app.js')
 const sequelize = require('./databases/database.js')
 
 const main = async () => {

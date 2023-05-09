@@ -1,10 +1,14 @@
 const multer = require('multer');
+const path = require('path');
 
 const storage = multer.diskStorage({
-    destination: '../uploads',
+    destination: (req, file, cb) => {
+        const uploadPath = path.join(__dirname, "../uploads");
+        cb(null, uploadPath);
+    },
     filename: (req, file, cb) => {
         const extecion = file.originalname.slice(file.originalname.lastIndexOf('.'));
-        cb(null, `${Date.now()} ${extecion}`);;
+        cb(null, `${Date.now()}${extecion}`);
     }
 });
 

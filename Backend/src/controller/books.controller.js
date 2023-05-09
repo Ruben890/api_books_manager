@@ -13,12 +13,13 @@ const createBooks = async (req, res) => {
         }
 
         // subir la imagen y obtener su URL
-        const image = file ? `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}` : null;
+        const file = req.file;
+        const image = file ? `${req.protocol}://${req.get('host')}/uploads/${file.filename}` : null;
 
 
 
         // Crear el libro
-        await Books.create({ title, author, publisher, description, year, userId: res.user.id, image });
+        await Books.create({ title, author,publisher, description, year, userId: res.user.id, image });
 
         // Enviar respuesta con éxito
         res.status(201).json({ message: 'Book created' });
