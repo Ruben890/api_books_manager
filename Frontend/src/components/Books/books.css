@@ -1,0 +1,51 @@
+.cardBooks {
+    width: 12rem;
+    height: 300px;
+    box-shadow: 5px 5px 20px #20202870;
+    overflow: hidden;
+}
+.cardBooks:hover {
+    cursor: pointer;
+}
+.card-img {
+    height: 300px;
+    width: 150px;
+    /* border-radius: 5px; */
+}
+.cardBooks:hover .into {
+    height: 150px;
+    bottom: 235px;
+    background-color: #202020e8;
+}
+.cardBooks:hover .into > p {
+    opacity: 1;
+    visibility: visible;
+}
+.cardBooks:hover > .card-img {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.into {
+    height: 50px;
+    width: 192px;
+    padding: 6px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 235px;
+    background-color: #2020208f;
+    color: #fff;
+    transition: .5s;
+}
+.into > h1 {
+    font-size: 22px;
+    margin: 10px;
+}
+.into > p {
+    font-size: 15px;
+    margin: 10px;
+    opacity: 0;
+    visibility: hidden;
+}
+.into > span {
+    font-weight: bold;
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from 'react-redux';
 import { getBooks } from "../../services/books/books.sevices";
+import "./books.css"
 export const Books = () => {
     const books = useSelector(state => state.book.books);
     const [loading, setLoading] = useState(true);
@@ -17,15 +18,13 @@ export const Books = () => {
 
     return books.data.map(book => {
         return (
-            <div key={book.id}>
-                <div className="card">
-                    <img src={book.image} alt={book.title} />
-                    <h2>{book.title}</h2>
+            <div key={book.id} className="cardBooks rounded" style={{ width: "12rem" }}>
+                <img src={book.image} alt={book.title} className="card-img rounded" />
+                <div className="into">
+                    <h1><span>{book.title}</span>-({book.year})</h1>
                     <p>{book.author}</p>
+                    <p>{book.publisher}</p>
                 </div>
-
-                <p>{book.publisher}</p>
-                <p>{book.year}</p>
             </div>
         )
     })
