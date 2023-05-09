@@ -34,7 +34,10 @@ app.use(session({
 //**middleware */
 app.use(morgan('dev'))
 app.use(express.json())
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // origen permitido//
+    optionsSuccessStatus: 200
+}));
 app.use(Helmet());
 app.use(express.static(path.join(__dirname, "./uploads")))
 

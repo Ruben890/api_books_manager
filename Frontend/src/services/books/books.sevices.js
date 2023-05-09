@@ -4,10 +4,11 @@ const APIBooks = axios.create({
   baseURL: 'http://localhost:4000/api/v1/book',
   headers: {
     'Content-Type': 'multipart/form-data',
-    'Authorization': localStorage.getItem('auth_token')
-  }
-})
-
+    'Authorization': localStorage.getItem('auth_token'),
+    // 'Cross-Origin-Resource-Policy': 'cross-origin'
+  },
+  crossOrigin: true
+});
 export const getBooks = (page = 0, search = "") => async (dispatch) => {
   const response = await APIBooks.get(`/?page=${page}&search=${search}`);
   dispatch(setBook(response.data));
