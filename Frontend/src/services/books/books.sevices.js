@@ -5,7 +5,7 @@ const APIBooks = axios.create({
   headers: {
     'Content-Type': 'multipart/form-data',
     'Authorization': localStorage.getItem('auth_token'),
-    // 'Cross-Origin-Resource-Policy': 'cross-origin'
+    'Cross-Origin-Resource-Policy': '*'
   },
   crossOrigin: true
 });
