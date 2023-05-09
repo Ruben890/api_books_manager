@@ -7,7 +7,7 @@ const { registerUser, loginUser, getUser } = require('../../controller/auth.user
 
 router
     .post('/login', loginUser)//*login user
-    .post('/register', upload.single("image"), registerUser)//*register user
+    .post('/register', upload, registerUser)//*register user
     .get('/me', verifyToken, getUser)//* view the user
 
 

@@ -5,7 +5,7 @@ const upload = require('../../middleware/uploapFile.js')
 const { createBooks, getBooksAlls, getOneBook, updateBook, deleteBook } = require('../../controller/books.controller.js')
 
 router
-    .post('/createBook',upload.single("image"), verifyToken, createBooks)
+    .post('/createBook',upload, verifyToken, createBooks)
     .get('/', getBooksAlls)
     .get('/:id', getOneBook)
     .put("/updateBook/:id", verifyToken, updateBook)
