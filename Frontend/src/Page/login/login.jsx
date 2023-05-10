@@ -21,11 +21,11 @@ export const Login = () => {
 
     return (
         <>
-        <header>
-            <nav className="p-3">
-                <Link to='/'  className="text-white btn btn-primary"><i class="bi bi-arrow-return-left"></i>  Back</Link>
-            </nav>
-        </header>
+            <header>
+                <nav className="p-3">
+                    <Link to='/' className="text-white btn btn-primary"><i class="bi bi-arrow-return-left"></i>  Back</Link>
+                </nav>
+            </header>
             <div className="container w-75  rounded  shadow" style={{ marginTop: '3rem' }} >
                 <div className="row  align-items-stretch">
                     <div className="col bg-image d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded-start">
@@ -33,7 +33,7 @@ export const Login = () => {
 
                     </div>
                     <div className="col bg-withe rounded-end">
-                        <h2 className="fw-blod text-center py-5">Bivenenido</h2>
+                        <h2 className="fw-blod text-center py-5">welcome</h2>
 
                         {/* LOGIN */}
 
