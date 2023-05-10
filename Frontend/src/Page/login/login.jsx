@@ -21,7 +21,12 @@ export const Login = () => {
 
     return (
         <>
-            <div className="container w-75  rounded  shadow" style={{ marginTop: '6rem' }} >
+        <header>
+            <nav className="p-3">
+                <Link to='/'  className="text-white btn btn-primary"><i class="bi bi-arrow-return-left"></i>  Back</Link>
+            </nav>
+        </header>
+            <div className="container w-75  rounded  shadow" style={{ marginTop: '3rem' }} >
                 <div className="row  align-items-stretch">
                     <div className="col bg-image d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded-start">
 
