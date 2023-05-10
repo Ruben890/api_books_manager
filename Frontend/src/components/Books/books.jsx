@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getBooks } from "../../services/books/books.sevices";
 import { Link } from "react-router-dom";
 import "./books.css"
-export const Books = () => {
-    const books = useSelector(state => state.book.books);
+export const Books = ({books}) => {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
 

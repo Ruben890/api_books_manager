@@ -1,31 +1,21 @@
-import { useState, useEffect } from "react"
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Header } from "../../../components/header/header";
-import { getBooks } from "../../../services/books/books.sevices";
 import { MenuSidebar } from "../../../components/menuSidebar/menuSidebar";
+import { Books } from '../../../components/Books/books';
 import "./MyBooks.css"
 
 export const MyBooks = () => {
+    const user = useSelector(state => state.user.user.data)
     const books = useSelector(state => state.book.books);
-    const [loading, setLoading] = useState(true);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getBooks())
-            .then(() => setLoading(false));
-    }, [dispatch]);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-
+   
+    
     return (<>
         <Header />
         <MenuSidebar />
-        <main className="conatiner">
-            <section>
 
-
+        <main className="container mt-5">
+            <section style={{ display: "flex", alignContent: "center" }} className="m-5">
+                <Books books={books} />
             </section>
         </main>
 
