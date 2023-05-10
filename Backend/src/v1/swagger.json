@@ -97,7 +97,7 @@
                 "tags": [
                     "Auth User"
                 ],
-                "summary": "Listar usuarios",
+                "summary": "user",
                 "description": "",
                 "consumes": [
                     "application/json"
