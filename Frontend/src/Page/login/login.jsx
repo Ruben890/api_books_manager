@@ -23,7 +23,7 @@ export const Login = () => {
         <>
             <header>
                 <nav className="p-3">
-                    <Link to='/' className="text-white btn btn-primary"><i class="bi bi-arrow-return-left"></i>  Back</Link>
+                    <Link to='/' className="text-white btn btn-primary"><i className="bi bi-arrow-return-left"></i>  Back</Link>
                 </nav>
             </header>
             <div className="container w-75  rounded  shadow" style={{ marginTop: '3rem' }} >

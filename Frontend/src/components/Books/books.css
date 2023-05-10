@@ -39,7 +39,7 @@
     cursor: pointer;
 }
 .cardBooks:hover .into {
-    height: 150px;
+    height: 140px;
     bottom: 230px;
     background-color: #202020e8;
 }

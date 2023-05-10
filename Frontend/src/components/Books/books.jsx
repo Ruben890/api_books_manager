@@ -25,7 +25,6 @@ export const Books = () => {
                     <div className="into rounded">
                         <h1><span>{book.title}</span>-({book.year})</h1>
                         <p>{book.author}</p>
-                        <p>{book.publisher}</p>
                     </div>
                 </div>
             </Link>

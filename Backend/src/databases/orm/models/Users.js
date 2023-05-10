@@ -1,14 +1,16 @@
 const { DataTypes } = require('sequelize')
 const sequelize = require('../../database.js')
 const bcrypt = require('bcrypt')
+const { v4: uuidv4 } = require('uuid');
 const Books = require('./Boosk.js')
+
 
 const Users = sequelize.define('users', {
     id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
+        type: DataTypes.UUID,
+        defaultValue: () => uuidv4(),
+        primaryKey: true
+      },
     username: {
         type: DataTypes.STRING,
         allowNull: false,
