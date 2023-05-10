@@ -1,6 +1,6 @@
 # api_books_manager
 
-<img src="./img.png" atl="img_api" title="imagen-API" />
+<img src="./Api_img.png" atl="img_api" title="imagen-API" />
 
 ### 💻commant start: ⌨ npm run dev
 <h5>URL API DOCUMENTATION: <a href="http://localhost:4000/api-v1-docs/">http://localhost:4000/api-v1-docs/</a></h5> 
