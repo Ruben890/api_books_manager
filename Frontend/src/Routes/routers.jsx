@@ -4,6 +4,7 @@ import { Login } from '../Page/login/login';
 import { Register } from '../Page/register/register';
 import { MyBooks } from '../Page/deshboard/MyBooks/MyBooks';
 import { AppBook } from '../Page/deshboard/appBook/appBook';
+import { Book } from '../Page/Book/book';
 const Router = () => {
     return (
         <BrowserRouter>
@@ -13,6 +14,8 @@ const Router = () => {
                 <Route path="/signup" element={<Register />} />
                 <Route path="/myBooks" element={<MyBooks />} />
                 <Route path="/addBook" element={<AppBook />} />
+                <Route path="/book/:id" element={<Book />} />
+
             </Routes>
         </BrowserRouter>
     )

@@ -8,7 +8,6 @@ const Home = () => {
                 <section style={{display: "flex"}} className="m-2">
                 <Books/>
                 </section>
-                
             </main>
 
         </>
