@@ -7,8 +7,7 @@ import "./MyBooks.css"
 export const MyBooks = () => {
     const user = useSelector(state => state.user.user.data)
     const books = useSelector(state => state.book.books);
-   
-    
+
     return (<>
         <Header />
         <MenuSidebar />
@@ -18,7 +17,6 @@ export const MyBooks = () => {
                 <Books books={books} />
             </section>
         </main>
-
     </>)
 
 
