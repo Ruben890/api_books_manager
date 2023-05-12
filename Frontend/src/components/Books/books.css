@@ -16,7 +16,7 @@
     padding: 6px;
     box-sizing: border-box;
     position: absolute;
-    bottom: 230px;
+    bottom: 214px;
     background-color: #2020208f;
     color: #fff;
     transition: 0.5s;
@@ -40,7 +40,7 @@
 }
 .cardBooks:hover .into {
     height: 140px;
-    bottom: 230px;
+    bottom: 214px;
     background-color: #202020e8;
 }
 .cardBooks:hover .into > p {
