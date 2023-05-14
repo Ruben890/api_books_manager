@@ -6,7 +6,7 @@ const Home = () => {
         <>
             <Header />
             <main className="container mt-5">
-                <section style={{ display: "flex" }} className="m-2">
+                <section style={{ display: "flex", flexWrap:"wrap"}} className="m-2">
                     <Books />
                 </section>
             </main>

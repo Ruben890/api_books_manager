@@ -16,10 +16,12 @@ export const Books = ({ user }) => {
     }, [dispatch]);
 
     useEffect(() => {
+        // Filtrar libros por el ID del usuario si el usuario y los libros están disponibles
         if (books.data && user) {
             const filteredBooks = books.data.filter(book => book.userId === user.id);
             setUserBooks(filteredBooks);
         } else {
+            // Mostrar todos los libros si no hay usuario disponible
             setUserBooks(books.data);
         }
     }, [books.data, user]);

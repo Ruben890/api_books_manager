@@ -16,6 +16,8 @@ export const authLogin = async (email, password) => {
     } catch (error) {
         if (error.response && error.response.data && error.response.data.error) {
             errorMessage = error.response.data.error;
+        } else {
+            errorMessage = "An error occurred during login. Please try again.";
         }
     }
     return {
