@@ -6,7 +6,6 @@ import "./MyBooks.css"
 
 export const MyBooks = () => {
     const user = useSelector(state => state.user.user.data)
-    const books = useSelector(state => state.book.books);
 
     return (<>
         <Header />
@@ -14,7 +13,7 @@ export const MyBooks = () => {
 
         <main className="container mt-5">
             <section style={{ display: "flex", alignContent: "center" }} className="m-5">
-                <Books books={books} />
+                <Books user={user} />
             </section>
         </main>
     </>)
