@@ -13,7 +13,9 @@ export const MyBooks = () => {
 
         <main className="container mt-5">
             <section style={{ display: "flex", alignContent: "center" }} className="m-5">
-                <Books user={user} />
+               <div>
+                 <Books user={user} />
+               </div>
             </section>
         </main>
     </>)

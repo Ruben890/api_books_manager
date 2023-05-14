@@ -1,4 +1,4 @@
-import { Navigate } from "react-router";
+import { Navigate, Outlet } from "react-router";
 
 
 export const ProtectRouter = ({ user, children, redirectTo }) => {
@@ -8,5 +8,5 @@ export const ProtectRouter = ({ user, children, redirectTo }) => {
         return <Navigate to={redirectTo} />;
     }
 
-    return children;
+    return <Outlet />;
 };

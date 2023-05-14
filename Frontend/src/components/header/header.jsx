@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from "../../services/auth/auth.services";
 import "./header.css";

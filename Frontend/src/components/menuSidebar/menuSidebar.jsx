@@ -15,9 +15,6 @@ export const MenuSidebar = () => {
                     <li className="p-2">
                         <Link to="/addBook">Add Book</Link>
                     </li>
-                    <li className="p-2">
-                        <Link to='/update-book'>Update Book</Link>
-                    </li>
                 </ul>
             </nav>
 

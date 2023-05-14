@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Home from '../Page/home/home';
 import { Login } from '../Page/login/login';
 import { Register } from '../Page/register/register';
@@ -6,7 +7,6 @@ import { MyBooks } from '../Page/deshboard/MyBooks/MyBooks';
 import { AppBook } from '../Page/deshboard/appBook/appBook';
 import { BookDetail } from '../Page/Book/book';
 import { ProtectRouter } from '../components/protectRouter';
-import { useSelector } from "react-redux";
 
 
 
@@ -18,8 +18,12 @@ const Router = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Register />} />
-                <Route path="/myBooks" element={<ProtectRouter user={user} redirectTo='/login '><MyBooks /></ProtectRouter>} />
-                <Route path="/addBook" element={<ProtectRouter user={user} redirectTo='/login'><AppBook /></ProtectRouter>} />
+                //* rutas protegistas
+                <Route element={<ProtectRouter user={user} redirectTo='/login' />}>
+                    <Route path="/myBooks" element={<MyBooks />} />
+                    <Route path="/addBook" element={<AppBook />} />
+                </Route>
+
                 <Route path="/book/:id" element={<BookDetail />} />
 
             </Routes>
