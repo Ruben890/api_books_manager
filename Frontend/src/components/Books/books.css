@@ -3,20 +3,23 @@
     height: 300px;
     box-shadow: 5px 5px 20px #20202870;
     overflow: hidden;
+    position: relative; /* Añadir posición relativa al contenedor */
 }
 
 .card-img {
     height: 300px;
     width: 150px;
+    transition: transform 0.5s; /* Mover la transición a esta regla */
 }
 
 .into {
     height: 80px;
-    width: 192px;
+    width: 100%; /* Cambiar el ancho a 100% */
     padding: 6px;
     box-sizing: border-box;
     position: absolute;
-    bottom: 214px;
+    bottom: 0; /* Cambiar la posición inferior a 0 */
+    left: 0; /* Alinear a la izquierda */
     background-color: #2020208f;
     color: #fff;
     transition: 0.5s;
@@ -40,7 +43,6 @@
 }
 .cardBooks:hover .into {
     height: 140px;
-    bottom: 214px;
     background-color: #202020e8;
 }
 .cardBooks:hover .into > p {
@@ -49,4 +51,14 @@
 }
 .cardBooks:hover > .card-img {
     transform: scale(1.1) rotate(-3deg);
+}
+
+/* Media queries */
+@media screen and (max-width: 600px) {
+    .cardBooks {
+        width: 100%; /* Cambiar el ancho al 100% en pantallas pequeñas */
+    }
+    .into {
+        width: 100%; /* Cambiar el ancho al 100% en pantallas pequeñas */
+    }
 }
