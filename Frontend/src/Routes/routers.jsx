@@ -5,6 +5,10 @@ import { Register } from '../Page/register/register';
 import { MyBooks } from '../Page/deshboard/MyBooks/MyBooks';
 import { AppBook } from '../Page/deshboard/appBook/appBook';
 import { BookDetail } from '../Page/Book/book';
+import { ProtectRouter } from '../components/protectRouter';
+
+
+
 const Router = () => {
     return (
         <BrowserRouter>
@@ -12,8 +16,8 @@ const Router = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Register />} />
-                <Route path="/myBooks" element={<MyBooks />} />
-                <Route path="/addBook" element={<AppBook />} />
+                <Route path="/myBooks" element={<ProtectRouter><MyBooks /></ProtectRouter>} />
+                <Route path="/addBook" element={<ProtectRouter><AppBook /></ProtectRouter>} />
                 <Route path="/book/:id" element={<BookDetail />} />
 
             </Routes>
