@@ -8,5 +8,5 @@ export const ProtectRouter = ({ user, children, redirectTo }) => {
         return <Navigate to={redirectTo} />;
     }
 
-    return <Outlet />;
+    return children ? children : <Outlet />;
 };
