@@ -1,12 +1,9 @@
-import { Navigate, Outlet } from "react-router";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
-
-export const ProtectRouter = ({ user, children, redirectTo }) => {
-
-
-    if (!user) {
-        return <Navigate to={redirectTo} />;
-    }
-
-    return children ? children : <Outlet />;
+const IsAuthenticated = ({ redirectTo }) => {
+  const user = useSelector(state => state.user.user.data);
+  return user ? <Outlet /> : <Navigate to={redirectTo} replace />;
 };
+
+export default IsAuthenticated;

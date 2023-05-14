@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import { setSearch } from "../../features/boosk/books.slice";
 import { getUser } from "../../services/auth/auth.services";
 import "./header.css";
 
@@ -28,6 +29,8 @@ export const Header = () => {
         }
     };
 
+
+
     const renderSignUpLink = () => {
         if (!user) {
             return (
@@ -54,7 +57,15 @@ export const Header = () => {
                             )}
                         </ul>
                         <div className="search p-2">
-                            <input type="text" placeholder="Search..." />
+                            <form className="form-group d-flex">
+                                <input
+                                    type="search"
+                                    placeholder="Search..."
+                                    className="form-control"
+                                    name="search"
+                                />
+                                <button type="submit" className="btn btn-primary ms-2">Search</button>
+                            </form>
                         </div>
                     </div>
                 </div>
