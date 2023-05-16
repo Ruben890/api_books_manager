@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { setSearch } from "../../features/boosk/books.slice";
 import { getUser } from "../../services/auth/auth.services";
 import "./header.css";
 
@@ -43,11 +42,7 @@ export const Header = () => {
     };
 
     return (
-        <header>
-
-            <div className="">
-                
-            </div>
+        <>
             <nav className="navbar navbar-expand">
                 <div className="container-fluid">
                     <div className="options w-100">
@@ -74,6 +69,6 @@ export const Header = () => {
                     </div>
                 </div>
             </nav>
-        </header>
+        </>
     );
 };
