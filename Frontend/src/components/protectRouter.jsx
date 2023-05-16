@@ -6,4 +6,6 @@ const IsAuthenticated = ({ redirectTo }) => {
   return user ? <Outlet /> : <Navigate to={redirectTo} replace />;
 };
 
+
+
 export default IsAuthenticated;

@@ -12,7 +12,7 @@ export const MyBooks = () => {
         <MenuSidebar />
 
         <main className="container mt-5">
-            <section style={{ display: "flex", alignContent: "center" }} className="m-5">
+            <section style={{ display: "flex", alignContent: "center", flexWrap: "wrap" }} className="m-5">
                 <Books user={user} />
             </section>
         </main>
