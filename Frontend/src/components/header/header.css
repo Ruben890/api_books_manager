@@ -1,5 +1,7 @@
 .navbar {
     background-color: #0db2ac;
+    position:sticky;
+    top: 0px;
 }
 .navbar .options{
    display: flex;
