@@ -1,4 +1,4 @@
-import { authRegister } from "../../services/auth/auth.services"
+import { authRegister } from "../../services/auth/auth.service"
 import { useState } from "react"
 export const Register = () => {
     const [errorMessage, setErrorMessage] = useState("");

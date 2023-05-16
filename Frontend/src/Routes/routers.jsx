@@ -7,26 +7,28 @@ import { AppBook } from '../Page/deshboard/appBook/appBook';
 import { BookDetail } from '../Page/Book/book';
 import IsAuthenticated from '../components/protectRouter';
 import RouteSWithNotFount from '../utilities/routes-whith-not-fount';
-
+import { Suspense } from "react";
 
 const Router = () => {
 
     return (
-        <BrowserRouter>
-            <RouteSWithNotFount>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Register />} />
+        <Suspense fallback={<> Cargando...</>}>
+            <BrowserRouter>
+                <RouteSWithNotFount>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Register />} />
                 //* rutas protegistas
-                <Route element={<IsAuthenticated redirectTo='/login' />}>
-                    <Route path="/myBooks" element={<MyBooks />} />
-                    <Route path="/addBook" element={<AppBook />} />
-                </Route>
+                    <Route element={<IsAuthenticated redirectTo='/login' />}>
+                        <Route path="/myBooks" element={<MyBooks />} />
+                        <Route path="/addBook" element={<AppBook />} />
+                    </Route>
 
-                <Route path="/book/:id" element={<BookDetail />} />
+                    <Route path="/book/:id" element={<BookDetail />} />
 
-            </RouteSWithNotFount>
-        </BrowserRouter>
+                </RouteSWithNotFount>
+            </BrowserRouter>
+        </Suspense>
     )
 }
 

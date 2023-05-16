@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { authLogin } from "../../services/auth/auth.services"
+import { authLogin } from "../../services/auth/auth.service"
 import "./login.css"
 
 export const Login = () => {

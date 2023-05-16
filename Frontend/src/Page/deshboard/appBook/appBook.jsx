@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { createBook } from "../../../services/books/books.sevices"
 import { Header } from "../../../components/header/header"
-import { MenuSidebar } from "../../../components/menuSidebar/menuSidebar"
 import './appBook.css'
 export const AppBook = () => {
     const [erroMessage, setErrorMessage] = useState("")
@@ -23,9 +22,7 @@ export const AppBook = () => {
     }
     return (<>
         <Header />
-        <MenuSidebar />
-
-        <main className="conatiner-fluid p-5 m-2 d-flex justify-content-center">
+        <main className="conatiner-fluid p-5 m-2">
 
             <section className="position-relative top-0">
                 <div className="d-flex">
