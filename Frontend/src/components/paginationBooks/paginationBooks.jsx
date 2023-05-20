@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { getBooks } from "../../../services/books/books.sevices";
+import { getBooks } from "../../services/books/books.sevices";
 import { useSelector, useDispatch } from "react-redux";
-import { setPage } from "../../../features/boosk/books.slice";
+import { setPage } from "../../features/boosk/books.slice";
 
 export const PaginationBooks = () => {
     const books = useSelector(state => state.book.page);
     const [paginationBooks, setPagination] = useState(0);
     const dispatch = useDispatch();
-    console.log(books);
+
 
     const pagination = async (page) => {
         setPagination(page)
@@ -18,7 +18,7 @@ export const PaginationBooks = () => {
 
     return (
         <div className="d-flex p-3 justify-content-between">
-            <button 
+            <button
                 className="btn m-2"
                 onClick={() => pagination(paginationBooks - 1)}
                 disabled={books <= 0}

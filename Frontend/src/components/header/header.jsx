@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from "../../services/auth/auth.service";
+import { getBooks } from "../../services/books/books.sevices";
+import { setSearch } from "../../features/boosk/books.slice";
 import "./header.css";
 
 export const Header = () => {
@@ -12,6 +14,12 @@ export const Header = () => {
         dispatch(getUser());
     }, [dispatch]);
 
+    const BooksSearch = async (e) => {
+        e.preventDefault();
+        const search = e.target.elements.Search.value;
+        await dispatch(getBooks(0, search));
+        dispatch(setSearch(search));
+    };
 
 
     return (
@@ -42,8 +50,8 @@ export const Header = () => {
                             </li>)}
 
                         </ul>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <form className="d-flex" role="search" onSubmit={BooksSearch}>
+                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="Search" />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </div>

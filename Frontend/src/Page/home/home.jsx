@@ -1,6 +1,6 @@
 import { Header } from "../../components/header/header";
 import { Books } from "../../components/Books/books";
-import { PaginationBooks } from "../../components/Books/paginationBooks/paginationBooks";
+import { PaginationBooks } from "../../components/paginationBooks/paginationBooks";
 const Home = () => {
 
     return (
@@ -15,7 +15,7 @@ const Home = () => {
                     </div>
 
                     <div>
-                        <PaginationBooks/>
+                        <PaginationBooks />
                     </div>
                 </section>
 
