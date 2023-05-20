@@ -4,7 +4,7 @@ import { Login } from '../Page/login/login';
 import { Register } from '../Page/register/register';
 import { MyBooks } from '../Page/deshboard/MyBooks/MyBooks';
 import { AppBook } from '../Page/deshboard/appBook/appBook';
-import { BookDetail } from '../Page/Book/book';
+import { BookDetail } from '../Page/BookDetail/bookDetail';
 import IsAuthenticated from '../components/protectRouter';
 import RouteSWithNotFount from '../utilities/routes-whith-not-fount';
 import { Suspense } from "react";
