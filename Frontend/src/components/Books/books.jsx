@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getBooks } from "../../services/books/books.sevices";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import "./books.css";
 
@@ -20,12 +20,26 @@ export const Books = ({ user }) => {
         // Filtrar libros por el ID del usuario si el usuario y los libros están disponibles
         if (books.data && user) {
             const filteredBooks = books.data.filter(book => book.userId === user.id);
-            setUserBooks(filteredBooks);
+            filteredBooks.length > 0 ? setUserBooks(filteredBooks) : setUserBooks(null);
+
         } else {
             // Mostrar todos los libros si no hay usuario disponible
             setUserBooks(books.data);
         }
     }, [books.data, user]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (!userBooks) {
+        return (
+            <div className="card p-3  m-3 border border-danger">
+                <p className="fs-3">You have not published a book.</p> <Link to="addBook">Create Book</Link>
+            </div>
+        );
+    }
+
 
     if (loading) {
         return <div>Loading...</div>;

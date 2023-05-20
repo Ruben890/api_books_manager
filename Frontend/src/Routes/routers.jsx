@@ -23,8 +23,9 @@ const Router = () => {
                         <Route path="/myBooks" element={<MyBooks />} />
                         <Route path="/addBook" element={<AppBook />} />
                     </Route>
-
-                    <Route path="/book/:id" element={<BookDetail />} />
+                    //* Rutas para BookDetail
+                    <Route path={'/book/:id'} element={<BookDetail />} />
+                    <Route path={'/myBooks/book/:id'} element={<BookDetail />} />
 
                 </RouteSWithNotFount>
             </BrowserRouter>

@@ -10,7 +10,7 @@ export const BookDetail = () => {
     const book = useSelector(state => state.book.books.data);
     const dispatch = useDispatch();
     const params = useParams()
-
+    
     useEffect(() => {
         dispatch(getOneBook(params.id))
             .then(() => setLoading(false));
