@@ -214,7 +214,7 @@
                         "name": "id",
                         "description": "ID del libro",
                         "required": true,
-                        "type": "integer"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -230,7 +230,7 @@
                 }
             }
         },
-        "/book/updateBook/": {
+        "/book/updateBook/{id}": {
             "put": {
                 "tags": [
                     "Books Manager"
@@ -249,12 +249,13 @@
                         "name": "id",
                         "description": "ID del libro",
                         "required": true,
-                        "type": "integer"
+                        "type": "string",
+                        "format": "uuid"
                     },
                     {
                         "name": "book",
                         "in": "body",
-                        "description": "actulizar libro",
+                        "description": "actualizar libro",
                         "schema": {
                             "$ref": "#/definitions/Books"
                         }
@@ -262,7 +263,7 @@
                 ],
                 "responses": {
                     "201": {
-                        "description": "sea ha actulizado el libro",
+                        "description": "se ha actualizado el libro",
                         "schema": {
                             "$ref": "#/definitions/Books"
                         }
@@ -273,7 +274,7 @@
                 }
             }
         },
-        "/book/deleteBook/": {
+        "/book/deleteBook/{id}": {
             "delete": {
                 "tags": [
                     "Books Manager"
@@ -288,14 +289,15 @@
                 ],
                 "parameters": [
                     {
-                        "name": "book",
+                        "name": "id",
                         "in": "path",
                         "description": "ID del libro",
                         "required": true,
-                        "type": "integer"
+                        "type": "string",
+                        "format": "uuid"
                     }
                 ],
-                "response": {
+                "responses": {
                     "200": {
                         "description": "Libro eliminado"
                     },

@@ -103,7 +103,7 @@ const deleteBook = async (req, res) => {
         if (!book) return res.status(404).json({ message: "Book not found or does not belong to this user." });
 
         // borrar el libro
-        const deleteUser = await Users.destroy({ where: { id: req.params.id } })
+        const deleteUser = await Books.destroy({ where: { id: req.params.id } })
         if (!deleteUser) return res.status(404).json({ message: "User not found", })
         res.status(201).json({
             message: "delete user successfully"
