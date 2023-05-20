@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getUser } from "../../services/auth/auth.service";
@@ -36,9 +36,20 @@ export const Header = () => {
                                 {user ? <Link className="nav-link active" aria-current="page" to={`/user/${user.id}`}>{user.username}</Link> : <Link className="nav-link active" aria-current="page" to="/login">login</Link>}
 
                             </li>
+
                             <li className="nav-item">
                                 {!user && <Link to="/signup" className="nav-link">signup</Link>}
                             </li>
+
+                            <li className="nav-item">
+                                {user && (
+                                    <button onClick={() => {
+                                        localStorage.removeItem('auth_token')
+                                        window.location.href = '/'
+                                    }} className="nav-link btn">Logout</button>
+                                )}
+                            </li>
+
                             {user && (<li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" to='myBooks' role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Books
