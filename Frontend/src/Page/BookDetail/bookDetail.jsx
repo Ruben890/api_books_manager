@@ -3,14 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 import { useParams } from "react-router";
 import { getOneBook } from "../../services/books/books.sevices";
-import { Header } from "../../components/header/header";
 import { Link } from "react-router-dom";
 export const BookDetail = () => {
     const [loading, setLoading] = useState(true);
     const book = useSelector(state => state.book.books.data);
     const dispatch = useDispatch();
     const params = useParams()
-    
+
     useEffect(() => {
         dispatch(getOneBook(params.id))
             .then(() => setLoading(false));

@@ -19,16 +19,16 @@ export const PaginationBooks = () => {
     return (
         <div className="d-flex p-3 justify-content-between">
             <button
-                className="btn m-2"
+                className="btn m-2 border border-primary"
                 onClick={() => pagination(paginationBooks - 1)}
                 disabled={books <= 0}
             >
                 Back Page
             </button>
             <button
-                className="btn m-2"
+                className="btn m-2 border border-primary"
                 onClick={() => pagination(paginationBooks + 1)}
-                disabled={books <= 1}
+                disabled={books >= 1}
             >
                 Next Page
             </button>
