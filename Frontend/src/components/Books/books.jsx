@@ -41,9 +41,6 @@ export const Books = ({ user }) => {
     }
 
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
 
     return userBooks.map(book => (
         <Link to={`book/${book.id}`} key={book.id}>
