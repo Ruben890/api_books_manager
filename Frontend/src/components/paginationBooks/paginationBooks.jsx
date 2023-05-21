@@ -17,7 +17,7 @@ export const PaginationBooks = () => {
 
 
     return (
-        <div className="d-flex p-3 justify-content-between">
+        <div className="d-flex p-3 justify-content-between w-100" style={{position: "absolute", bottom: '0px'}}>
             <button
                 className="btn m-2 border border-primary"
                 onClick={() => pagination(paginationBooks - 1)}

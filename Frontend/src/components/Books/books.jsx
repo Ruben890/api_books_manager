@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getBooks } from "../../services/books/books.sevices";
-import { Link, useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 import "./books.css";
 
@@ -35,7 +35,7 @@ export const Books = ({ user }) => {
     if (!userBooks) {
         return (
             <div className="card p-3  m-3 border border-danger">
-                <p className="fs-3">You have not published a book.</p> <Link to="addBook">Create Book</Link>
+                <p className="fs-3">You have not published a book.</p> <Link to="/addBook">Create Book</Link>
             </div>
         );
     }

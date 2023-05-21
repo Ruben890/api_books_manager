@@ -14,17 +14,12 @@ const Home = () => {
                     <div style={{ display: "flex", flexWrap: "wrap" }} className="m-2">
                         <Books />
                     </div>
-
-                    <div>
-                        <PaginationBooks />
-                    </div>
                 </section>
-
-
-
-
             </main>
 
+            <footer>
+                <PaginationBooks />
+            </footer>
 
 
         </>

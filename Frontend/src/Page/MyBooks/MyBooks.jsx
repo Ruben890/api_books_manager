@@ -14,12 +14,12 @@ export const MyBooks = () => {
                 <div style={{ display: "flex", alignContent: "center", flexWrap: "wrap" }} className="m-2">
                     <Books user={user} />
                 </div>
-
-                <div>
-                    <PaginationBooks />
-                </div>
             </section>
         </main>
+
+        <footer>
+            <PaginationBooks />
+        </footer>
     </>)
 
 
