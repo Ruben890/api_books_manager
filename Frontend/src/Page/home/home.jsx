@@ -9,15 +9,16 @@ const Home = () => {
             <header>
                 <Header />
             </header>
-            <main className="container-fluid mt-5">
-                <section >
+            <main className="container">
+                <section className="content">
                     <div style={{ display: "flex", flexWrap: "wrap" }} className="m-2">
                         <Books />
                     </div>
                 </section>
             </main>
 
-            <footer>
+
+            <footer style={{ marginTop: "auto" }}>
                 <PaginationBooks />
             </footer>
 

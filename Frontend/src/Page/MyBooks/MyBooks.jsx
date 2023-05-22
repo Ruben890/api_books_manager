@@ -9,15 +9,15 @@ export const MyBooks = () => {
     return (<>
 
         <Header />
-        <main className="container mt-5">
-            <section className="m-5">
-                <div style={{ display: "flex", alignContent: "center", flexWrap: "wrap" }} className="m-2">
+        <main className="container">
+            <section className="content">
+                <div style={{ display: "flex", flexWrap: "wrap" }} className="m-2">
                     <Books user={user} />
                 </div>
             </section>
         </main>
 
-        <footer>
+        <footer style={{ marginTop: "auto" }}>
             <PaginationBooks />
         </footer>
     </>)
