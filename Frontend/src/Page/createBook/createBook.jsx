@@ -18,7 +18,10 @@ export const CreateBook = () => {
         const response = await createBook(book)
         if (response.errorMessage) {
             setErrorMessage(response.errorMessage);
+        } else {
+            window.location.href = '/myBooks'
         }
+
     }
     return (<>
         <Header />

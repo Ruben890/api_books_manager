@@ -37,3 +37,12 @@ export const createBook = async (formData) => {
   };
 }
 
+export const deleteBook = async (id) => {
+  try {
+    const response = await APIBooks.delete(`/deleteBook/${id}`);
+  } catch (error) {
+    if (error.response && error.response.data && error.response.data.error) {
+      console.error(error.response.data.error);
+    }
+  }
+}
