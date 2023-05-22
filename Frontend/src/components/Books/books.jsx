@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBooks, deleteBook } from "../../services/books/books.sevices";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import "./books.css";
 
 export const Books = ({ user }) => {
@@ -10,7 +9,7 @@ export const Books = ({ user }) => {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
     const [userBooks, setUserBooks] = useState([]);
-    const params = useParams();
+
 
     useEffect(() => {
         dispatch(getBooks()).then(() => setLoading(false));
