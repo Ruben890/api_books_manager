@@ -1,3 +1,3 @@
-# api_books_manager
-book handling api with authentication using jwt also has pagination and book search
+# app_books_manager
+
 <img src="./img.png" alt='img'>

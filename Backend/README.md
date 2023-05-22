@@ -10,9 +10,9 @@
 <li>PORT = ""</li>
 <br>
 <p>📃info database📄</p>
-<li>PORTDB_NAME = "mydb"</li>
+<li>PORTDB_NAME = "db_port"</li>
 <li>DB_USER = "myuser"</li>
-<li>PORTDB_NAME = "mydb"</li>
+<li>DB_NAME = "mydb"</li>
 <li>BD_PASSWORD = "password"</li>
 <li>DB_HOST = 'localhost'</li>
 <br>
