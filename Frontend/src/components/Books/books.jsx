@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBooks, deleteBook } from "../../services/books/books.sevices";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./books.css";
 
 export const Books = ({ user }) => {
@@ -9,6 +10,7 @@ export const Books = ({ user }) => {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
     const [userBooks, setUserBooks] = useState([]);
+    const params = useParams();
 
     useEffect(() => {
         dispatch(getBooks()).then(() => setLoading(false));
@@ -45,20 +47,36 @@ export const Books = ({ user }) => {
         );
     }
 
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    return userBooks.map(book => (
-        <Link to={`book/${book.id}`} key={book.id}>
-            <div className="cardBooks rounded shadow bg-body-tertiary m-3" style={{ width: "12rem" }}>
-                <img src={book.image} alt={book.title} className="card-img rounded" />
-                <div className="into rounded">
-                    <h1><span>{book.title}</span>-({book.year})</h1>
-                    <p>{book.author}</p>
+    return (
+        <>
+            {userBooks.map((book) => (
+                <div
+                    className="cardBooks rounded shadow bg-body-tertiary m-3"
+                    style={{ width: "12rem" }}
+                    key={book.id}
+                >
+                    {user && (
+                        <button
+                            className="delete-btn"
+                            title="Delete book"
+                            onClick={() => deleteBookHandler(book.id)}
+                        >
+                            <i className="bi bi-x-lg"></i>
+                        </button>
+                    )}
+                    <Link to={`book/${book.id}`}>
+                        <img src={book.image} alt={book.title} className="card-img rounded" />
+                        <div className="into rounded">
+                            <h1>
+                                <span>{book.title}</span>-({book.year})
+                            </h1>
+                            <p>{book.author}</p>
+                        </div>
+                    </Link>
                 </div>
-            </div>
-        </Link>
-    ));
+            ))}
+        </>
+    );
 };
+
+
